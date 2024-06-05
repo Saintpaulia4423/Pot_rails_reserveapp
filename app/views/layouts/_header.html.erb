@@ -1,32 +1,32 @@
 <header>
-  <ul class="nav justify-content-end">
-    <nav class="navbar navbar-expand-lg">
+  <ul class="nav navbar-fixed-top justify-content-end">
+    <nav class="navbar text-center">
       <div class="row">
-        <li class="nav-item"><%= link_to "ホーム", root_path %></li>
+        <li class="nav-item"><%= link_to "ホーム", root_path, class: "nav-link" %></li>
         <% if h_logged_in? %>
-          <li class="dropdown">
-            <div class="container">
-              <button id="account" class="dropdown-toggler" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item">
+            <div class="dropdown nav-user">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="navbar-brand">
                   <%= image_tag @current_user.avatar, alt: "アカウント画像" %>
                 </div>
                 <%= @current_user.name %>
-              </button>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><%= link_to "プロフィール", show_path %></li>
+                <li><%= link_to "施設一覧", "#"%></li>
+                <li><%= link_to "施設登録", "#"%></li>
+                <li><%= link_to "施設検索", "#"%></li>
+                <li><%= link_to "予約登録", "#"%></li>
+                <li><%= link_to "予約一覧", "#"%></li>
+                <li class="divider"></li>
+                <li><%= link_to "ログアウト", logout_path, method: :delete, data: { confirm: "ログアウトしますか？"} %></li>
+              </ul>
             </div>
-            <ul class="dropdown-menu">
-              <li><%= link_to "プロフィール", show_path %></li>
-              <li><%= link_to "施設一覧", "#"%></li>
-              <li><%= link_to "施設登録", "#"%></li>
-              <li><%= link_to "施設検索", "#"%></li>
-              <li><%= link_to "予約登録", "#"%></li>
-              <li><%= link_to "予約一覧", "#"%></li>
-              <li class="divider"></li>
-              <li><%= link_to "ログアウト", logout_path, method: :delete, data: { confirm: "ログアウトしますか？"} %></li>
-            </ul>
           </li>
         <% else %>
-          <li class="nav-item"><%= link_to "新規アカウント登録", signup_path %> </li>
-          <li class="nav-itme"><%= link_to "ログイン", login_path %></li>
+          <li class="nav-item"><%= link_to "新規アカウント登録", signup_path, class: "nav-link" %> </li>
+          <li class="nav-itme"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
         <% end %>
       </div>
     </ul>

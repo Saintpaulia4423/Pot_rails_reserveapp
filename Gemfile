@@ -25,9 +25,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-#jquery
-gem "jquery-rails"
-
 #localize
 gem "rails-i18n", "~> 6.0"
 

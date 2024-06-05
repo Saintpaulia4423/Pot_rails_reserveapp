@@ -10,14 +10,14 @@ class SessionController < ApplicationController
       redirect_to show_path
     else
       flash.now[:danger] = "Emailかパスワードに誤りがあります"
-      render "new"
+      render "/new"
     end
   end
 
   def destroy
     if h_logged_in?
       h_forget(h_current_user)
-      redirect_to "home"
+      redirect_to "/home"
     end
   end
 end

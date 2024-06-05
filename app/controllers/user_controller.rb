@@ -1,6 +1,5 @@
 class UserController < ApplicationController
-  def index
-  end
+
 
   def new
     @user = User.new
@@ -15,18 +14,43 @@ class UserController < ApplicationController
       redirect_to show_path
     else
       flash.now[:warning] = "入力に誤りがあります"
-      render "new"
+      render "/new"
     end
   end
 
-  def edit
+  def edit_account
+    if h_logged_in?
+      @user = h_current_user
+    else
+      h_unlogged_in
+    end
+  end
+  
+  def edit_profile
+    if h_logged_in?
+      @user = h_current_user
+    else
+      h_unlogged_in
+    end
   end
 
   def show
-    h_logged_in?
+    if h_logged_in?
+      @user = h_current_user
+    else
+      h_unlogged_in
+    end
   end
 
   def update
+    @user = User.find_by(params[:id])
+    if @user.update(user_params)
+      flash.now[:info] = "ユーザー情報を更新しました。"
+      redirect_to "/show"
+    else
+      flash.now[:warning] = "入力内容に問題があります。"
+      render "/edit"
+    end
   end
 
   def destroy

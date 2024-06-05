@@ -35,6 +35,12 @@ module SessionHelper
     end
   end
 
+  #ログインしていない状態でログインが必要な箇所で実行した際の処理
+  def h_unlogged_in
+    flash.now[:warning] = "ログインされていません。ログインを実施してください。"
+    redirect_to "home"
+  end
+
   #ログインしているユーザー情報を消去する
   def h_forget(user)
     user.forget

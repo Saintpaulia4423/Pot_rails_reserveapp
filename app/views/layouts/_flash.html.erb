@@ -1,16 +1,5 @@
 <% flash.each do |message_type,message| %>
   <div class="alert alert-<%= message_type%>">
     <%= message %>
-      <% if @user.present? %>
-        <% if @user.errors.any? %>
-          <div class="alert">
-            <ul>
-              <% @user.errors.full_messages.each do |errormessage| %>
-                <li><%= errormessage %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <% end %>
   </div>
 <% end %>

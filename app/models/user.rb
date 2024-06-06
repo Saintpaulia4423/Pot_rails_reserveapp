@@ -11,6 +11,7 @@ class User < ApplicationRecord
                                     message: "以下のフォーマットのみ受け付けます。[jpeg,gif,png]"},
                     size:         { less_than: 5.megabytes,
                                     message: "最大5MBまでアップロードできます。"}
+                                 
   has_secure_password
 
   #セッショントークンを削除

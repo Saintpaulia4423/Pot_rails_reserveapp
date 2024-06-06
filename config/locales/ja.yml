@@ -9,11 +9,6 @@ ja:
         password: パスワード
         password_confirmation: パスワードの再入力
         current_password: 現在のパスワード
-      reservations:
-        checkin: チェックイン日
-        checkout: チェックアウト日
-        person: 人数
-        correct_day: 予約確定日時
       room:
         name: 施設名
         info: 施設詳細
@@ -21,6 +16,11 @@ ja:
         price: 料金
         address: 住所
         created_at: 登録日
-
+        image: 施設画像
+      reservation:
+        checkin: チェックイン日
+        checkout: チェックアウト日
+        person: 人数
+        correct_day: 予約確定日時
 
 

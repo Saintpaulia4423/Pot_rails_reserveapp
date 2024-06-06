@@ -5,14 +5,14 @@
   <div class="col">
     <% if h_logged_in? %>
       <h2>ようこそ
-        <%= h_current_user.name %>
+        <%= @current_user.name %>
         様
       </h2>
       <ul class="list-group">
-        <li class="list-group-item"><%= link_to "ユーザーページ", show_path(h_current_user) %></li>
-        <li class="list-group-item"><%= link_to "予約一覧", index_reservation_path(h_current_user) %></li>
-        <li class="list-group-item"><%= link_to "施設一覧", index_room_path(h_current_user) %></li>
-        <li class="list-group-item"><%= link_to "ログアウト", logout_path , method: :delete, data: {confrim: "ログアウトしますか？"}%></li>
+        <li class="list-group-item"><%= link_to "ユーザーページ", show_path(@current_user) %></li>
+        <li class="list-group-item"><%= link_to "予約一覧", index_reservation_path(@current_user) %></li>
+        <li class="list-group-item"><%= link_to "施設一覧", index_room_path(@current_user) %></li>
+        <li class="list-group-item"><%= link_to "ログアウト", logout_path(@current_user) , method: :delete, data: {confrim: "ログアウトしますか？"}%></li>
       </ul>
     <% else %>
       <h3>まずはログインから

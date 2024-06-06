@@ -1,0 +1,24 @@
+<% provide(:title, "アカウント情報更新") %>
+<div class="container">
+  <h1>アカウント編集ページ</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_with url: edit_path, scope: :user do |f| %>
+      
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, class: "form-control" %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+
+        <%= f.submit "アカウント更新", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -7,17 +7,17 @@ class SessionController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       reset_session
       h_log_in(@user)
-      redirect_to show_path
+      redirect_to show_path(@user)
     else
       flash.now[:danger] = "Emailかパスワードに誤りがあります"
-      render "/new"
+      render "new"
     end
   end
 
   def destroy
     if h_logged_in?
       h_forget(h_current_user)
-      redirect_to "/home"
+      redirect_to home_path
     end
   end
 end

@@ -3,15 +3,16 @@ Rails.application.routes.draw do
 
   get "/home", to: "user#home"
   #user
-  get "/show", to: "user#show"
+  get "/show/:id", to: "user#show", as: :show
   get "/signup", to: "user#new"
   post "/signup", to: "user#create"
-  get "/edit_account", to: "user#edit_account"
-  get "/edit_profile", to: "user#edit_profile"
+  get "/edit_account/:id", to: "user#edit_account", as: :edit_account
+  get "/edit_profile/:id", to: "user#edit_profile", as: :edit_profile
+  post "/edit/:id", to: "user#update", as: :edit
   #session
   get "/login", to: "session#new"
   post "/login", to: "session#create"
-  delete "/logout", to: "session#destroy"
+  delete "/logout/:id", to: "session#destroy", as: :logout
   #room
   get "/index_room", to: "room#index"
   #reservation

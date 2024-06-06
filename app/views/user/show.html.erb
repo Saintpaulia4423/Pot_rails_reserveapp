@@ -12,15 +12,19 @@
             <td><%= @user.email %></td>
           </tr>
         </table>
-        <%= link_to "アカウント情報の編集", edit_account_path, class: "btn btn-primary" %>
+        <%= link_to "アカウント情報の編集", edit_account_path(@current_user), class: "btn btn-primary" %>
       </div>
 
       <div class="col-md-6">
         <h3>プロフィール情報</h3>
         <table class="container">
           <tr>
-            <th>アバター</th>
-            <td><%= image_tag @user.avatar %></td>
+            <th>アイコン画像</th>
+            <td>
+              <div class="avatar-show">
+                <%= render "layouts/avatar" %>
+              </div>
+            </td>
           </tr>
           <tr>
             <th>名前</th>
@@ -28,10 +32,16 @@
           </tr>
           <tr>
             <th>自己紹介</th>
-            <td><%= @user.appeal %></td>
+            <td>
+              <% if @user.appeal %>
+                <%= @user.appeal %>
+              <% else %>
+                未設定
+              <% end %>
+            </td>
           </tr>
         </table>
-        <%= link_to "プロフィール情報の編集", edit_profile_path, class: "btn btn-primary" %>
+        <%= link_to "プロフィール情報の編集", edit_profile_path(@current_user), class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>

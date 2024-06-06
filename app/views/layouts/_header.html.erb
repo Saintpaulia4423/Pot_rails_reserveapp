@@ -8,19 +8,19 @@
             <div class="dropdown nav-user">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="navbar-brand">
-                  <%= image_tag @current_user.avatar, alt: "アカウント画像" %>
+                  <%= render "layouts/avatar" %>
                 </div>
                 <%= @current_user.name %>
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><%= link_to "プロフィール", show_path %></li>
+                <li><%= link_to "プロフィール", show_path(@current_user) %></li>
                 <li><%= link_to "施設一覧", "#"%></li>
                 <li><%= link_to "施設登録", "#"%></li>
                 <li><%= link_to "施設検索", "#"%></li>
                 <li><%= link_to "予約登録", "#"%></li>
                 <li><%= link_to "予約一覧", "#"%></li>
                 <li class="divider"></li>
-                <li><%= link_to "ログアウト", logout_path, method: :delete, data: { confirm: "ログアウトしますか？"} %></li>
+                <li><%= link_to "ログアウト", logout_path(@current_user), method: :delete, data: { confirm: "ログアウトしますか？"} %></li>
               </ul>
             </div>
           </li>

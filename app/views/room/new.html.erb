@@ -1,0 +1,33 @@
+<% provide(:title, "施設登録") %>
+<div class="container">
+  <h1>施設登録</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_with url: new_room_path, scope: :room do |f| %>
+        <%= render "layouts/error_messages", object: @room %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      
+        <%= f.label :info %>
+        <%= f.text_area :info, class: "form-control" %>
+
+        <%= f.label :appeal %>
+        <%= f.text_area :appeal, class: "form-control" %>
+
+        <%= f.label :address %>
+        <%= f.text_field :address, class: "form-control" %>
+
+        <%= f.label :price %>
+        <%= f.text_field :price, class: "form-control" %>
+
+        <%= f.label :image %>
+        <span class="image block">
+          <%= f.file_field :image %>
+        </span>
+
+        <%= f.submit "施設登録", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

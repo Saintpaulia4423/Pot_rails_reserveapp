@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   post "/login", to: "session#create"
   delete "/logout/:id", to: "session#destroy", as: :logout
   #room
-  get "/room/:id/index", to: "room#index_myrooms", as: :index_myroom
-  get "/room/:id/new",to: "room#new", as: :new_room
-  post "/room/:id/new", to: "room#create"
+  get "/user/:id/room/index", to: "room#index_myroom", as: :index_myroom
+  get "/user/:id/room/new",to: "room#new", as: :new_room
+  post "/user/:id/room/new", to: "room#create"
+  get "/room/:id/show", to: "room#show", as: :show_room
   get "/index_room", to: "room#index"
   #reservation
   get "/index_reservation", to: "reservation#index"

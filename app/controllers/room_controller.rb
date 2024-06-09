@@ -2,22 +2,43 @@ class RoomController < ApplicationController
   def index
   end
 
+  def search
+    type = params[:type]
+    word = params[:word]
+    @records = Room.search(type, word)
+    if town_area = params[:town_area]
+      @records = @records.where("address Like?", "%#{town_area}%")
+    end
+  end
+
   def index_myroom
-    @rooms = h_current_user.rooms
+    if h_logged_in?
+      @rooms = h_current_user.rooms
+    else
+      h_unlogged_in
+    end
   end
 
   def new
-    @room = h_current_user.rooms.build
+    if h_logged_in?
+      @room = h_current_user.rooms.build
+    else
+      h_unlogged_in
+    end
   end
 
   def create
-    @room = h_current_user.rooms.build(params.require(:room).permit(:name, :info, :appeal, :address, :price, :image))
-    if @room.save
-      flash.now[:info] = "施設を登録しました！"
-      redirect_to index_myroom_path(h_current_user)
+    if h_logged_in?
+      @room = h_current_user.rooms.build(params.require(:room).permit(:name, :info, :appeal, :address, :price, :image))
+      if @room.save
+        flash.now[:info] = "施設を登録しました！"
+        redirect_to index_myroom_path(h_current_user)
+      else
+        flash.now[:warning] = "登録できませんでした。"
+        render "new"
+      end
     else
-      flash.now[:warning] = "登録できませんでした。"
-      render "new"
+      h_unlogged_in
     end
   end
 

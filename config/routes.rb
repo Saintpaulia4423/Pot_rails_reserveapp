@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get "/user/:id/room/new",to: "room#new", as: :new_room
   post "/user/:id/room/new", to: "room#create"
   get "/room/:id/show", to: "room#show", as: :show_room
-  get "/index_room", to: "room#index"
+  get "/index_room", to: "room#index", as: :index_room
+  get "/search", to: "room#search", as: :search
   #reservation
   get "/index_reservation", to: "reservation#index"
 

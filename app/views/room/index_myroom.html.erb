@@ -7,25 +7,7 @@
   <% else %>
     <div class="container">
       <% @rooms.each do |room| %>
-        <div class="row room-index">
-          <div class="col-4 room-thumb">
-            <%= render "room_image", room: room%>
-          </div>
-          <div class="col-6">
-            <div class="col border room-view">
-              <%= link_to "施設名：#{room.name}", show_room_path(room) %>
-            </div>            
-            <div class="col border room-view">
-              利用料金：<%= room.price %>/日
-            </div>
-            <div class="col border room-view">
-              施設紹介：<%= room.info %>
-            </div>
-            <div class="col border">
-              登録日：<%= room.created_at.strftime("%Y年%m月%d日") %>
-            </div>
-          </div>
-        </div>
+        <%= render "index_room", room: room%>
       <% end %>
   <% end %>
 </div>

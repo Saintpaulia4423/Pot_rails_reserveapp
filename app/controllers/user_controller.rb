@@ -50,7 +50,7 @@ class UserController < ApplicationController
       if params.require(:user)[:current_password] 
         if params.require(:user)[:password] && params.require(:user)[:password_confirmation]
           #新規パスワードとその再入力が合致しているか確認する。
-          if params.require(:user)[:password] = params.require(:user)[:password_confirmation]
+          if params.require(:user)[:password] == params.require(:user)[:password_confirmation]
             #現在のパスワードで認証
             if @user.authenticate(params.require(:user)[:current_password])
               if @user.update(params.require(:user).permit(:id, :email, :password, :password_confirmation))

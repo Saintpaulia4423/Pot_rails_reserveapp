@@ -14,6 +14,18 @@
   }
 }
 
+.room {
+  box-sizing: content-box;
+  max-height: 500px;
+
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
 
 .room-index {
   background-color: azure;
@@ -27,4 +39,6 @@
   padding: 0.5em;
 }
 
-.room-view {}
+.room-show-image {
+  max-height: 500px;
+}

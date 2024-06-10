@@ -1,0 +1,40 @@
+// Place all the styles related to the Room controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.room-thumb .room {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+.room {
+  box-sizing: content-box;
+  max-height: 500px;
+
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+
+.room-index {
+  background-color: azure;
+  border: 2px solid black;
+  margin: 1rem;
+  padding: 0.1rem 0;
+}
+
+
+.room-show-image {
+  max-height: 500px;
+}

@@ -1,0 +1,13 @@
+<% provide(:title, "登録した施設一覧")%>
+<div class="container">
+  <h1>あなたが登録した施設</h1>
+  <% if @rooms.empty? %>
+    <h5>施設が登録されていません。登録してみませんか？</h5>
+    <%= link_to "施設登録", new_room_path, class: "btn btn-primary"%>
+  <% else %>
+    <div class="container">
+      <% @rooms.each do |room| %>
+        <%= render "index_room", room: room%>
+      <% end %>
+  <% end %>
+</div>

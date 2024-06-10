@@ -1,0 +1,7 @@
+<div class="avatar">
+  <% if @current_user.image.attached? %>
+    <%= image_tag @current_user.image %>
+  <% else %>
+    <%= image_tag @current_user.avatar %>
+  <% end %>
+</div>

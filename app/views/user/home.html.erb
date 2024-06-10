@@ -1,0 +1,27 @@
+<% provide(title: "スケジュール予約サイト") %>
+<div class="container">
+  <h1>スケジュール予約サイト</h1>
+
+  <div class="col">
+    <% if h_logged_in? %>
+      <h2>ようこそ
+        <%= @current_user.name %>
+        様
+      </h2>
+      <ul class="list-group">
+        <li class="list-group-item"><%= link_to "ユーザーページ", show_path(@current_user) %></li>
+        <li class="list-group-item"><%= link_to "予約一覧", index_reservation_path(@current_user) %></li>
+        <li class="list-group-item"><%= link_to "施設一覧", index_myroom_path(@current_user) %></li>
+        <li class="list-group-item"><%= link_to "施設検索", index_room_path %>
+        <li class="list-group-item"><%= link_to "ログアウト", logout_path(@current_user) , method: :delete, data: {confrim: "ログアウトしますか？"}%></li>
+      </ul>
+    <% else %>
+      <h3>まずはログインから
+        <%= link_to "ログイン", login_path, class: "btn btn-primary" %>
+      </h3>
+      <h5>初めてのご利用ですか？
+        <%= link_to "アカウント登録", signup_path, class: "btn btn-primary"%>
+      </h5>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<% provide(:title, "予約一覧") %>
+<div class="container">
+  <h1>予約一覧</h1>
+  <% if @reservations.empty? %>
+    <h5>予約がありません。</h5>
+    <p>予約をしてみましょう！　予約は施設から。</p>
+    <%= link_to "施設検索", index_room_path, class: "btn btn-primary"%>
+  <% else %>
+    <% @reservations.each do |res| %>
+      <%# <div class="container"> %>
+        <div class="row margin-set index-reservation border d-flex">
+          <div class="col-3 reservartion-image border-right room-thumb">
+            <%= render "room/room_image", room: res.room %>
+          </div>
+          <div class="col-3 border-right">
+            <div class="container h-100 d-flex flex-column">
+              <div class="row-4 border-bottom flex-fill p-2">
+                チェックイン日：<%= res.checkin.strftime("%Y年%m月%d日") %>
+              </div>
+              <div class="row-4 border-bottom flex-fill p-2">
+                チェックアウト日：<%= res.checkout.strftime("%Y年%m月%d日") %>
+              </div>
+              <div class="row-4 flex-fill p-2">
+                施設名：<%= res.room.name%>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 border-right">
+            <div class="container h-100 d-flex flex-column">
+              <div class="row-4 border-bottom flex-fill p-2">
+                料金：<%= h_price_cal(h_date_cal(res.checkin, res.checkout), res.room.price, res.person) %>円
+              </div>
+              <div class="row-4 border-bottom flex-fill p-2">
+                予約確定日：<%= res.created_at.strftime("%Y年%m月%d日") %>
+              </div>
+              <div class="row-4 flex-fill p-2">
+                施設紹介：<%= res.room.info %>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="container h-100 d-flex flex-column">
+              <%= link_to "予約を確認", show_reservation_path(res), class: "btn btn-primary margin-set" %>
+              <%= link_to "部屋を確認", show_room_path(res.room), class: "btn btn-primary"%>
+            </div>
+          </div>
+        <%# </div> %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

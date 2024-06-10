@@ -1,0 +1,6 @@
+<% provide(:title, "#{@room.name}の詳細情報")%>
+<div class="container">
+  <h1><%= @room.name %>の詳細情報</h1>
+  <%= render "room_show", room: @room %>
+  <%= link_to "戻る", "javascript:history.back()", class: "btn btn-primary"%>
+</div>

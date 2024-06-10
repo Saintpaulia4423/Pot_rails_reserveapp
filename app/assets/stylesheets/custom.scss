@@ -1,0 +1,36 @@
+.nav {
+  box-sizing: content-box;
+  background-color: #ccc;
+  flex: 1 1 0;
+  max-height: 5rem;
+
+
+  .row {
+    flex: 1 1;
+    flex-direction: row;
+
+  }
+
+  .nav-item>a.nav-link {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.block {
+  display: block;
+}
+
+.border {
+
+  tr {
+    border: 1px solid gray;
+  }
+}
+
+
+.margin-set {
+  margin-bottom: 3em;
+}

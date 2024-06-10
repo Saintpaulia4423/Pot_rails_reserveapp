@@ -1,0 +1,13 @@
+<div class="list-group">
+  <li class="list-group-item room-show-image">
+    <div class="row">
+      <h5>施設画像</h5>
+    </div>
+    <div class="row">
+      <%= render "room/room_image", room: room %>          
+    </div>
+  </li>
+  <li class="list-group-item">施設名：<%= room.name %></li>        
+  <li class="list-group-item">紹介文：<%= room.info%></li>        
+  <li class="list-group-item">宿泊料金：<%= room.price%>/日</li>        
+</div>

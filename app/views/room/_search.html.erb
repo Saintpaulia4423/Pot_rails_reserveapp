@@ -1,0 +1,14 @@
+<div class="row">
+  <%=  form_with url: search_path, method: :get do |f|%>
+    <div class="col">
+      <%= f.label "検索欄"%>
+      <%= f.text_field :word %>
+      <%= f.label "地域指定"%>
+      <%= f.text_field :town_area %>
+      <%= f.select :type, options_for_select({"住所検索" => "area", "住所・施設名検索" => "free_word"})%>
+    </div>
+    <div class="col">
+      <%= f.submit "検索"%>
+    </div>
+  <% end %>
+</div>

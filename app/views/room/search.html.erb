@@ -1,0 +1,19 @@
+<% provide(:title, "検索結果")%>
+<div class="container">
+  <h1>検索結果</h1>
+  <%= render "search" %>
+  <div class="row">
+    <% if @records.any? %>
+      <div class="container">
+        <div class="col">
+          <h5>ヒット数：<%= @records.count %>件</h5>
+        </div>
+        <div class="col">
+          <% @records.each do |record| %>
+            <%= render "index_room", room: record %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

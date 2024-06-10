@@ -1,18 +1,6 @@
 <% provide(:title, "#{@room.name}の詳細情報")%>
 <div class="container">
   <h1><%= @room.name %>の詳細情報</h1>
-  <div class="list-group">
-    <li class="list-group-item room-show-image">
-      <div class="row">
-        <h5>施設画像</h5>
-      </div>
-      <div class="row">
-        <%= render "room_image", room: @room %>          
-      </div>
-    </li>
-    <li class="list-group-item">施設名：<%= @room.name %></li>        
-    <li class="list-group-item">紹介文：<%= @room.info%></li>        
-    <li class="list-group-item">宿泊料金：<%= @room.price%>/日</li>        
-  </div>
+  <%= render "room_show", room: @room %>
   <%= link_to "戻る", "javascript:history.back()", class: "btn btn-primary"%>
 </div>

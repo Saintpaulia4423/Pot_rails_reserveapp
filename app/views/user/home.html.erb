@@ -12,6 +12,7 @@
         <li class="list-group-item"><%= link_to "ユーザーページ", show_path(@current_user) %></li>
         <li class="list-group-item"><%= link_to "予約一覧", index_reservation_path(@current_user) %></li>
         <li class="list-group-item"><%= link_to "施設一覧", index_myroom_path(@current_user) %></li>
+        <li class="list-group-item"><%= link_to "施設検索", index_room_path %>
         <li class="list-group-item"><%= link_to "ログアウト", logout_path(@current_user) , method: :delete, data: {confrim: "ログアウトしますか？"}%></li>
       </ul>
     <% else %>

@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   get "/index_room", to: "room#index", as: :index_room
   get "/search", to: "room#search", as: :search
   #reservation
+  get "/user/:user_id/room/:room_id", to: "reservation#new", as: :new_reservation
+  post "user/:user_id/room/:room_id", to: "reservation#create"
   get "/index_reservation", to: "reservation#index"
+  get "/reservation/:id", to: "reservation#show", as: :show_reservation
 
   # resources :users
   # resources :rooms

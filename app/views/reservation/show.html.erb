@@ -1,0 +1,38 @@
+<% provide(:title, "#{@reservation.user.name}さんの#{@reservation.room.name}の予約")%>
+<div class="container">
+  <h1>予約確認</h1>
+  <div class="row">
+    <div class="container">
+      <h3>予約情報</h3>
+      <div class="col margin-set half-width">
+        <h4>施設情報</h4> 
+        <%= render "room/room_show", room: @reservation.room %>
+      </div>
+      <div class="col">
+        <h4>予約詳細</h4>
+        <table class="border">
+          <tr>
+            <th>予約管理番号：</th>
+            <td><%= @reservation.id %></td>
+          </tr>
+          <tr>
+            <th>チェックイン日：</th>
+            <td><%= @reservation.checkin %></td>
+          </tr>
+          <tr>
+            <th>チェックアウト日：</th>
+            <td><%= @reservation.checkout %></td>
+          </tr>
+          <tr>
+            <th>予約した人数：</th>
+            <td><%= @reservation.person %></td>
+          </tr>
+          <tr>
+            <th>料金：</th>
+            <td><%=  h_price_cal(h_date_cal(@reservation.checkin, @reservation.checkout), @reservation.room.price, @reservation.person) %>円</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
